@@ -18,6 +18,7 @@
 *   **复杂文档处理**：高效解析和处理冗长且专业性极强的法律卷宗或商业合同。
 *   **医疗辅助诊断**：通过分析患者的输入症状和病史，为医生提供可靠的诊断建议参考。
 
+
 **2. 核心差异化能力：评估与错误分析 (Evals & Error Analysis)**
 
 随着 Agentic AI 的普及，一个关键问题浮出水面：**到底是什么决定了一个开发者能否构建出优秀的代理应用？**
@@ -235,6 +236,7 @@ def highly_autonomous_agent(topic):
 
 ![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260411182940631.png)
 
+
 掌握 Agentic Workflows 的关键，并不在于一味追求最高级别的自主性，而在于**根据实际的业务需求和容错率，在自主性光谱上找到最合适的那个点**。低端光谱中蕴藏着无数立竿见影的商业机会，而高端光谱则代表着通向通用人工智能（AGI）的未来脉络。
 
 理解了自主性的分级框架后，在接下来的探讨中，我们将进一步深挖这些 Agentic 工作流底层的设计模式，揭示它们如何赋予基础模型前所未有的强大能力。
@@ -330,9 +332,11 @@ async def parallel_research_workflow(topic):
 *   **工具链的灵活替换**：比如在搜索节点，如果你觉得传统的 Google 搜索不够聚焦，你可以无缝将其替换为专为 LLM 设计的搜索引擎（如 Tavily、DuckDuckGo 或 u.com）。你甚至可以随时插入一个新的“新闻搜索 API”，让 Agent 专门去获取黑洞科学的最新突破。
 *   **模型路由（Model Routing）**：在同一个工作流中，你不必从头到尾使用同一个模型。例如，在“网页内容提取”这种简单任务上，你可以调用便宜且快速的小模型；而在最后一步“反思与润色”时，再切换到推理能力最强、成本较高的旗舰大模型。这种模块化组合，能够完美平衡性能与 API 成本。
 
+
 **4. 总结**
 
 概括而言，代理工作流之所以成为当前 AI 开发的绝对主流，归功于它所带来的三大核心优势：
+
 1.  **指数级的性能提升**：通过反思和迭代，让小模型超越大模型，让大模型突破极限。
 2.  **并发提速**：打破人类的线性工作瓶颈，实现海量信息的同时处理。
 3.  **高度的模块化**：工具可升级，模型可插拔，系统具备极强的生命力和扩展性。
@@ -425,11 +429,12 @@ def process_customer_email(email_text):
 
     ![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260412124600424.png)
 
-    **5. 总结与展望**
 
-    无论业务需求落在难度光谱的哪一端，想要成功构建 Agentic 工作流，最核心的工程化能力都在于**任务拆解（Task Decomposition）**。
+**5. 总结与展望**
 
-    面对撰写深度研究报告或全能客服助理这样庞大的目标，我们如何将其优雅地拆解为一个接一个、Agent 可以稳健执行的离散化组件？在接下来的内容中，我们将深入探讨任务拆解的底层逻辑与实践方法。
+无论业务需求落在难度光谱的哪一端，想要成功构建 Agentic 工作流，最核心的工程化能力都在于**任务拆解（Task Decomposition）**。
+
+面对撰写深度研究报告或全能客服助理这样庞大的目标，我们如何将其优雅地拆解为一个接一个、Agent 可以稳健执行的离散化组件？在接下来的内容中，我们将深入探讨任务拆解的底层逻辑与实践方法。
 
 ### 任务拆解与组件化思维
 
@@ -484,6 +489,7 @@ def process_customer_email(email_text):
 *   **Step 3：起草并发送回复** -> *LLM + 工具库*（LLM 写邮件 -> 调用 Send Email API）
 
 ![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260412130443586.png)
+
 
 **案例 B：发票信息结构化入库**
 输入一张非结构化的发票 PDF，拆解如下：
@@ -599,6 +605,7 @@ def eval_competitor_mentions(agent_response):
 1.  **端到端评估 (End-to-end Evals)**：只看最终输出。例如，系统最终生成的文章质量如何？发给客户的邮件是否解决了问题？这决定了系统的商业交付价值。
 2.  **组件级评估 (Component-level Evals)**：下钻到工作流的每一个节点。例如，“Web 搜索节点”提取的 URL 是否相关？“数据库查询节点”生成的 SQL 语法是否正确？这有助于我们在系统崩溃时快速定位瓶颈。
 
+
 **4. 核心心法：审查执行轨迹 (Traces) 与错误分析**
 
 在驱动优化的过程中，仅仅看着得分变化是不够的。高级开发者会花费大量时间去**审查 Traces（执行轨迹）**。
@@ -700,3 +707,585 @@ Traces 记录了 Agent 在工作流中的每一步思考过程、工具调用参
 通过对**构建块（Building blocks）**进行有机组合，辅以**反思、工具调用、动态规划和多智能体协作**这四大设计模式，并建立起严谨的 **Evals（评估）机制**，你已经掌握了构建工业级 Agentic AI 应用的全套方法论。
 
 理论终究要落地于实践。在接下来的模块中，我们将首先对四大模式中最易上手、也最立竿见影的**反思模式 (Reflection)** 进行深度拆解。我们将亲自编写代码，看看这种看似简单的技术，如何让系统的性能实现惊人的飞跃。敬请期待！
+
+### 本地开发环境的搭建
+
+在深入探讨了反思（Reflection）、工具调用（Tool Use）等多项强大的 Agent 设计模式后，理论的武装已经完成。接下来，我们将正式进入动手实战（Labs）环节。
+
+虽然你可以直接在云端平台上运行这些实验代码，但对于想要深入研究底层逻辑、调试 Prompt 或自主修改工具链路的开发者来说，**将整个项目部署到本地机器上，无疑是最佳的实践方式。**
+
+下面，我们将一步步引导你完成本地 Agentic 开发环境的搭建。
+
+**1. 第一步：提取完整的实验资源**
+
+当你在课程平台上浏览包含代码的 Jupyter Notebook 时，千万不要只下载 `.ipynb` 文件本身。一个完整的 Agentic 项目通常包含许多隐性依赖，比如封装好的辅助脚本（Helper scripts）、环境配置文件或测试数据集。
+
+**正确的提取姿势是**：在平台内嵌的 Jupyter 界面顶部菜单栏中，依次点击 `File` -> `Open`，进入文件浏览器视图。从这里，你可以将整个工作目录下的所有关联文件打包下载到本地机器。
+
+**2. 第二步：环境隔离与内核注册**
+
+在构建 AI 项目时，不同框架对包版本的依赖往往非常严苛。为了避免与你本地的其他 Python 项目发生冲突，强烈建议使用虚拟环境（Virtual Environment）。同时，请确保你的基础环境已安装 **Python 3.10 或更高版本**。
+
+打开你的终端（Terminal），在项目根目录下执行以下命令来创建并激活虚拟环境：
+
+```bash
+# 1. 创建名为 venv 的虚拟环境
+python -m venv venv
+
+# 2. 激活虚拟环境
+# macOS / Linux 用户执行:
+source venv/bin/activate
+# Windows 用户执行:
+# venv\Scripts\activate
+```
+
+虚拟环境激活后，为了让你的 IDE（如 VS Code）或本地启动的 Jupyter Notebook 能够正确识别并使用这个隔离环境的解释器，我们需要将其注册为一个专用的内核（Kernel）：
+
+```bash
+# 将当前虚拟环境注册到 Jupyter
+python -m ipykernel install --user --name=venv
+```
+
+**3. 第三步：核心组件与依赖解析**
+
+环境准备就绪后，下一步是安装驱动这些 Agent 运行的核心组件。在项目根目录创建一个名为 `requirements.txt` 的文件，并将以下内容复制进去。
+
+仔细观察这份依赖清单，你会发现它完美映射了我们之前讨论过的 Agent 架构的“构建块（Building blocks）”：
+
+```text
+# requirements.txt
+
+# === Agent + LLM Tools (代理与大模型工具箱) ===
+aisuite==0.1.11        # 统一的多模型调用接口封装
+anthropic              # Claude 系列模型官方 SDK
+docstring-parser       # 解析函数注释，常用于自动生成工具(Tool)的 Schema
+markdown               # Markdown 文本处理
+mistralai              # Mistral 开源模型 SDK
+openai                 # GPT 系列模型官方 SDK
+qrcode                 # 二维码生成工具
+tavily-python>=0.7.12  # 专为 AI Agent 设计的强力 Web 搜索引擎
+textstat               # 文本可读性与统计分析
+vertexai               # 谷歌云 AI 平台 SDK
+
+# === Web Framework + API (API 交互与后端框架) ===
+fastapi                # 高性能的现代化 Web 框架，常用于部署 Agent 服务
+pydantic               # 严谨的数据验证库，是约束 LLM 输出格式的核心基石
+pydantic[email]
+python-dotenv          # 本地环境变量管理（用于安全加载各类 API Key）
+python-multipart
+requests               # 发起 HTTP 请求的必备工具
+sqlalchemy             # 强大的数据库 ORM 框架
+uvicorn                # 异步 ASGI 服务器，用于驱动 FastAPI
+
+# === Notebook Experience (交互式开发环境) ===
+ipywidgets
+jupyter_server
+nbclassic
+notebook
+
+# === Data Analysis / Display (数据分析与可视化扩展) ===
+duckdb                 # 轻量级极速内存数据库，极其适合配合 Agent 进行数据分析
+matplotlib
+pandas
+seaborn
+tabulate
+tinydb                 # 轻量级文档数据库，适合做小型 Agent 的状态存储
+
+# === Machine Learning / NLP (机器学习与自然语言处理扩展) ===
+jinja2                 # 强大的模板引擎，用于管理复杂的 Prompt 模板
+psycopg2-binary
+scikit-learn
+Wikipedia              # 维基百科数据抓取工具
+```
+
+**配置说明**：
+这份配置单不仅包含了连接各类头部大模型（OpenAI, Anthropic, Mistral 等）的驱动库，还集成了诸如 `tavily-python`（专为 AI 设计的无广告搜索引擎工具）、`duckdb`（供 Agent 执行数据分析的代码工具）以及 `pydantic`（确保大模型输出符合特定 JSON 结构的护栏库）。
+
+保存文件后，只需在终端执行一行安装命令：
+
+```bash
+# 一键安装所有依赖项
+pip install -r requirements.txt
+```
+
+等待进度条跑完，你的本地机器就已经被武装成了一个强大的 Agentic AI 研发基站。🚀
+
+现在，环境变量和底层组件均已就位。打开你的代码编辑器，在接下来的实战篇章中，我们将直接从代码层面，亲手构建出具备反思和执行能力的智能工作流。
+
+## 反思模式
+
+在构建复杂 Agentic 工作流时，我们拥有多种设计模式可供选择。其中，**反思模式（Reflection Design Pattern）** 往往是开发者最先接触，也是最容易实现的一种。尽管它的实现逻辑看似简单，但为系统带来的性能跃升却是极其显著的。
+
+要理解反思模式的精髓，我们不妨先回归人类自身的行为习惯。
+
+**1. 从人类的反思习惯到 AI 的自我纠错**
+
+人类在进行内容创作时，极少能够做到“一遍过”。假设你需要匆忙写一封邀约邮件，你的初稿（v1）可能长这样：
+> *"Hey Tommy, 我下个月去纽约，看看哪天晚上有空一起吃个饭。"*
+
+当你写完后，通常会习惯性地重新审视一遍（Reflection）。这时你会发现：这里没有提供具体的日期跨度，Tommy 根本没法安排时间；句子中有错别字；而且结尾忘了署名。经过大脑的“反思与纠错”，你会输出修改后的最终版（v2）：
+> *"Hey Tommy, 我下个月 5 号到 7 号在纽约。看看你哪天晚上有空一起吃个饭。—— Andrew"*
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260412201246108.png)
+
+**在 Agentic 工作流中，我们可以通过工程化的手段，将这种“起草 -> 审视 -> 修改”的机制复刻到大语言模型（LLM）身上。**
+
+在最基础的文本生成场景中，我们可以通过硬编码（Hard-coded）的方式，强制工作流执行两次 LLM 调用。第一遍生成初稿，第二遍注入包含审查指令的 Prompt，让模型输出改进后的第二版。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260412201551318.png)
+
+用代码来表示这种基础的“反思流水线”，其结构非常清晰：
+
+```python
+# 伪代码：基础的文本反思工作流 (Basic Reflection Workflow)
+
+def text_reflection_pipeline(user_prompt):
+    # 步骤 1：让 LLM 快速生成初稿 (v1)
+    draft_v1 = llm.generate(f"Write a first draft for: {user_prompt}")
+    
+    # 步骤 2：硬编码的反思步骤，强制模型审查自身输出
+    reflection_prompt = f"""
+    Here is a draft text: {draft_v1}
+    Please reflect on it. Check for clarity, typos, and missing details. 
+    Write an improved second draft.
+    """
+    draft_v2 = llm.generate(reflection_prompt) # 输出最终版 v2
+    
+    return draft_v2
+```
+
+**2. 代码生成中的“模型路由”策略**
+
+反思模式不仅适用于写邮件，在代码生成等高逻辑要求的任务中同样表现卓越。不过，当任务变复杂时，架构设计也需要随之升级。
+
+当我们要求 LLM 编写一段实现特定任务的代码（`def do_task(args):...`）时，模型同样会输出一个 v1 版本。此时，为了获得更高质量的反思结果，**我们完全没有必要在两个步骤中使用同一个模型。**
+
+不同的大模型有着不同的能力侧重点。在工程实践中，一种极其高效的策略是：**使用生成速度快、成本低的基础模型来编写初稿，然后将 v1 代码转交给专门的“推理模型（Reasoning / Thinking Models）”来执行 Debug 和重构。** 推理模型在逻辑审查和发现潜在 Bug 方面具有天然的优势。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260412201801208.png)
+
+**3. 引入外部反馈 (External Feedback)**
+
+基础的反思模式（让 LLM 盯着自己的代码死看）虽然有效，但其能力上限是非常明显的——因为模型并没有获得任何新的增量信息。
+
+**反思模式真正爆发出惊人威力的时刻，是我们向其中注入“外部反馈（External Feedback）”的时候。**
+
+什么叫外部反馈？在代码生成的场景下，就是**不要让模型空想，而是直接把代码扔进沙盒里跑一次。**
+当代码 v1 执行时，编译器抛出了一个真实的错误日志：`SyntaxError: unterminated string literal (detected at line 1)`。此时，这个真实的错误信息就成了极具价值的外部反馈。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260412202213520.png)
+
+我们将这段带有外部环境上下文的工作流，抽象为以下代码逻辑：
+
+```python
+# 伪代码：集成外部执行反馈的高级反思工作流 (Reflection with External Feedback)
+
+def coding_agent_with_feedback(task_description):
+    # 1. 快速生成初稿
+    code_v1 = fast_llm.write_code(task_description)
+    
+    # 2. 调用外部工具：代码执行环境 (Code Execution Sandbox)
+    execution_result = code_executor.run(code_v1)
+    
+    # 3. 如果运行报错，触发深度反思机制
+    if execution_result.has_errors:
+        critique_prompt = f"""
+        You wrote this code: {code_v1}
+        When executed, it produced the following error logs:
+        {execution_result.error_logs}
+        
+        Analyze the error carefully, reflect on what went wrong, 
+        and provide a fixed version of the code.
+        """
+        # 交给推理能力更强的模型进行重写
+        code_v2 = reasoning_llm.generate(critique_prompt)
+        return code_v2
+        
+    return code_v1 # 若无报错则直接返回
+```
+
+在这套架构中，错误日志（Error logs）打破了模型内部知识的闭环。模型不再是凭空猜测 Bug 在哪里，而是根据确凿的报错堆栈进行精准定位和修复。只要反思环节有机会摄取到外部的新增信息，系统生成第二版（v2）的质量就会有质的飞跃。
+
+**4. 总结与预告**
+
+必须承认，反思模式并不是能够解决一切问题的魔法，它不能保证系统 100% 永远正确。但作为一种极其轻量化、易于实现的工程化手段，它能为大多数应用带来非常可观的性能提升（Bump in performance）。特别是在叠加了外部反馈机制后，反思模式已经成为现代 Agent 系统不可或缺的基础设施。
+
+那么，这种通过“反思”获得的结果，与直接使用完美提示词（Zero-shot Prompting）强行要求模型一次性生成的结果相比，到底有多大的差距？在接下来的内容中，我们将通过系统性的对比评测，揭开这层神秘的面纱。
+
+### 反思模式优于直接生成的原因
+
+在掌握了反思模式（Reflection）的构建机制后，一个不可回避的问题摆在开发者面前：**相比于直接给 LLM 一个指令让它一次性生成结果（Direct Generation），我们为什么非要绕个弯子，花额外的 Token 成本和时间去做反思？**
+
+要回答这个问题，我们需要深入对比两种生成范式的底层逻辑，并用真实的数据说话。
+
+**1. 直接生成范式：从 Zero-shot 到 Few-shot**
+
+目前的常规应用中，绝大多数人都采用**直接生成（Direct generation）**的方式。你抛出一个问题，LLM 直接吐出答案：
+*   *"写一篇关于黑洞的文章。"* -> LLM 直接输出长文。
+*   *"写一个计算复利的 Python 函数。"* -> LLM 直接输出代码。
+
+
+在 Prompt 工程（Prompt Engineering）中，这种不给模型提供任何参考样例，直接下达指令的方式，被称为 **Zero-shot prompting（零样本提示）**。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413090744532.png)
+
+随着技巧的进阶，开发者会通过在 Prompt 中塞入预期的输入输出案例，来规范模型的表现：
+
+*   **One-shot (单样本)**：给一个例子（如：`输入：Jan 1st, 2025 -> 输出：01/01/2025`）。
+*   **Few-shot (少样本)**：给多个例子，让模型充分理解格式规律。
+
+
+但无论你在 Prompt 里塞了多少个 shot，**只要模型是从头到尾一条直线生成到底，且没有任何回头审视的机会，这就依然是直接生成。** 这种方式的隐患在于：一旦模型在前面某一句生成时“跑偏”或“幻觉”了，在自回归机制（预测下一个 Token）的惯性下，它只能硬着头皮错下去。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413091035420.png)
+
+**2. 数据背后的真相：反思带来的一致性碾压**
+
+反思模式究竟有没有用？学术界对此进行了严谨的量化测试。
+
+在著名的论文 *Self-refine: Iterative refinement with self-feedback (Madaan et al., 2023)* 中，研究者对情感反转、对话响应、代码优化、数学推理等多种任务进行了测试。
+
+测试结果呈现出一个极其一致的规律：在对比图表中，代表“反思模式（Self-Refine）”的深色柱状图，在几乎所有任务上，**全面且显著地碾压**代表“直接生成（Zero-shot）”的浅色柱状图。并且，这个规律在 GPT-3.5 到 GPT-4 等不同代际的模型中都同样成立。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413091347028.png)
+
+**3. 反思模式的最佳应用场景**
+
+在哪些具体的任务中，反思模式能发挥出最大的威力？
+
+**(1) 复杂结构化数据的生成与校验**
+当要求大模型生成深层嵌套的 JSON 或复杂的 HTML 表格时，模型很容易漏掉一个括号或闭合标签。如果采用直接生成，这种语法级错误是致命的。
+此时，一个专门的“校验 Prompt”就显得尤为重要：
+
+```python
+# 伪代码：结构化数据的生成与反思校验
+
+def generate_and_validate_json(prompt):
+    # 第一步：初稿生成
+    raw_json_str = llm.generate(f"Generate complex JSON for: {prompt}")
+    
+    # 第二步：反思与修复
+    reflection_prompt = f"""
+    Please validate the following JSON string:
+    {raw_json_str}
+    Check for missing brackets, incorrect nesting, and ensure it is strictly valid JSON.
+    If there are errors, fix them and output ONLY the valid JSON.
+    """
+    fixed_json = llm.generate(reflection_prompt)
+    return fixed_json
+```
+
+**(2) 长流程指令的连贯性检查**
+当你让模型输出“完美泡茶的 10 个步骤”时，它可能讲得天花乱坠，却唯独忘了说“水需要烧开”。反思指令（如：*Check instructions for coherence and completeness*）能强迫模型以“审阅者”的视角，重新梳理逻辑链条是否闭环。
+
+**(3) 具有潜在负面风险的创意生成**
+在商业实战中，我们常让 LLM 帮忙做头脑风暴（如给初创公司起名、想域名）。LLM 可能会造出一些看似炫酷，但在某些语言中发音极其拗口或带有负面含义的词汇。通过引入多维度的反思护栏（*Does domain name have any negative connotations?*），可以有效避免公关灾难。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413091928758.png)
+
+**4. 如何写出高质量的 Reflection Prompt？**
+
+反思 Prompt 不能只是简单的一句“请检查一下”，它需要有清晰的指导性。这里有两条黄金法则：
+
+**法则一：明确反思的动作与对象**
+直接告诉模型它的角色变了。例如：*“Review the email first draft / Review the domain names you suggested.”*（请审阅你给出的初稿/建议）。
+
+**法则二：提供具体、可执行的检查清单 (Checklist criteria)**
+不要让模型漫无目的地查错，你要告诉它“查什么”。
+*   **起名场景**：检查每个名字是否易于发音？在其他语言中有无负面含义？
+*   **邮件场景**：检查语气是否专业？是否存在可能被认为粗鲁的措辞？验证所有事实和日期是否与上下文匹配？
+
+
+最后，输出符合上述标准的精简列表或修改版。
+
+
+**进阶技巧**：提升 Prompt 编写能力的最快捷径，就是去阅读开源社区里优秀 Agent 框架的底层源码。看看那些顶尖工程师是如何设计“审阅者（Critic）”的系统提示词的，你会受益匪浅。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413093056448.png)
+
+**5. 总结**
+
+从盲目的“直接生成”走向严谨的“反思迭代”，是 AI 应用从玩具走向工业级产品的必经之路。
+
+到目前为止，我们讨论的反思都局限在纯文本领域。但如果我们的系统需要生成图表、绘制图像，这种反思机制还能奏效吗？在接下来的内容中，我们将打破纯文本的边界，探索一个极具趣味性的领域：让 AI 算法对生成的“视觉图像”进行反思与纠错。
+
+### 图表生成中的“视觉反思”
+
+在前文的探讨中，我们看到了反思模式（Reflection）在纯文本生成和代码修复中的巨大威力。但这仅仅是开始。随着多模态大语言模型（Multimodal LLMs，如 GPT-4o、Claude 3.5 Sonnet）的爆发，AI 的反思能力已经突破了纯文本的物理边界，开始展现出强大的“视觉推理（Visual Reasoning）”能力。
+
+今天，我们将通过一个极其经典的数据分析场景——**图表可视化生成**，来看看 Agent 是如何像人类数据分析师一样，不仅能写代码，还能“看懂”生成的图表，并对其进行审美与逻辑上的反思优化的。
+
+**1. 场景重现：糟糕的初始可视化 (v1)**
+
+假设你经营着一家咖啡店，系统里记录了每一杯饮品的销售数据（包括：日期、价格、咖啡名称等）。现在的任务是：*“利用 `coffee_sales.csv` 数据，生成一张对比 2024 年和 2025 年第一季度咖啡销量的图表。”*
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413095035069.png)
+
+如果我们采用传统的“直接生成”模式，工作流是这样的：
+1.  **用户下发 Prompt**。
+2.  **LLM 生成代码 (v1)**：模型会调用 `pandas` 和 `matplotlib` 库写出数据过滤和绘图逻辑。
+3.  **代码执行沙盒**：运行 v1 代码，生成最终的图像文件 `plot.png`。
+
+
+但在真实世界中，大模型第一次写出的绘图代码，往往在逻辑上是正确的（能跑通），但在**数据呈现的美学和可读性上却是一场灾难**。
+例如，模型可能会默认生成一个极其丑陋的**堆叠柱状图（Stacked bar plot）**。各种咖啡的销量被硬生生挤在一根柱子里，颜色难以区分，对比效果极差。这就是典型的“没有视觉直觉”的表现。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413100146798.png)
+
+**2. 架构升维：引入多模态视觉反思机制**
+
+为了解决这个问题，我们需要在工作流中引入一个“多模态审查环节”。
+
+这一次，我们不再仅仅把代码执行的报错日志喂给模型。我们会将 **v1 版本的代码**与**生成的实际图像 (plot.png)** 一起打包，喂给一个具备视觉能力的 LLM，让它像人类专家一样“审视图表”。
+
+我们可以用以下伪代码来描述这个极具魔力的“看图修改”工作流：
+
+```python
+# 伪代码：集成视觉反思的多模态图表生成工作流
+
+def multimodal_chart_agent(task_prompt, csv_data):
+    # 1. 基础模型生成初始绘图代码
+    code_v1 = code_llm.generate(f"Write python code to visualize: {task_prompt} using data: {csv_data}")
+    
+    # 2. 执行代码，不仅捕获结果，还将生成的图片保存下来
+    execution_result = code_executor.run_and_save_plot(code_v1, output_path="plot_v1.png")
+    
+    # 3. 准备视觉反思 Prompt，并附加前置代码和生成的图像
+    vision_critique_prompt = f"""
+    You are an expert data analyst. 
+    Here is the code I wrote: {code_v1}
+    And here is the image it generated: [Attached: plot_v1.png]
+    
+    Step 1: Critique the attached chart visually. Is it readable? 
+            Does it effectively answer the user's question?
+    Step 2: Rewrite the python code to implement a much better, clearer visualization.
+    """
+    
+    # 4. 调用强大的多模态视觉模型进行反思与重写
+    code_v2 = vision_llm.generate(vision_critique_prompt, image_input="plot_v1.png")
+    
+    # 5. 执行优化后的代码，生成最终完美图表
+    final_result = code_executor.run_and_save_plot(code_v2, output_path="plot_v2.png")
+    
+    return final_result
+```
+
+**3. 多模态反思带来的质变**
+
+在这个过程中，视觉模型（Vision LLM）利用其强大的视觉推理能力，能直接“看到”堆叠柱状图带来的糟糕体验。
+
+它会在反思中指出：“*堆叠柱状图不利于同类咖啡在不同年份间的直接对比*”，并主动修改底层的 Python 代码，将图表类型更改为并排的**分组柱状图（Grouped bar graph）**，同时优化图例位置、调整坐标轴字体大小，最终输出一份极其清晰、美观的数据可视化结果 (v2)。
+
+**4. 模型的解耦与路由**
+
+在实际开发中，资深的 Agent 架构师绝不会让一个模型从头干到尾。由于不同模型的优势领域各异，我们需要进行精细的**模型路由（Model Routing）**：
+
+*   **初始生成层 (LLM 1)**：可以使用速度快、写代码能力强的模型（如 GPT-4o 或 Claude 3.5 Sonnet）快速生成初始逻辑。
+*   **视觉反思层 (LLM 2)**：由于需要极高的逻辑推演和视觉理解能力，我们可以切换到专门的“推理模型（Reasoning Models，如 o1 系列或具备强推演链的视觉模型）”。
+
+
+并且，在设计反思 Prompt 时，必须赋予模型明确的人设和标准：
+
+> *"You are an expert data analyst who provides constructive feedback on visualizations. Step 1: Critique the attached chart for readability, clarity, and completeness..."*
+> *(“你是一位专家级数据分析师……请从可读性、清晰度和完整性三个维度对图表进行批判……”)*
+
+给出的标准越具体，模型在视觉反思时就越有方向感，最终生成的代码迭代质量也就越高。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413100722772.png)
+
+**5. 总结**
+
+当你亲自在代码实验室（Coding Lab）中跑通这个咖啡销量可视化的流程时，你会真切地感受到多模态反思机制带来的震撼。
+
+然而，作为一名理性的开发者，我们必须认识到：**反思机制并非万能药**。在某些任务上它能带来断崖式的性能提升，而在另一些极度简单的任务上，它可能只会白白浪费 Token 成本。
+
+因此，如何量化反思机制为你特定的业务场景带来的真实收益？如何通过数据驱动来微调初始生成 Prompt 与反思 Prompt？在接下来的章节中，我们将正式探讨针对反思工作流的评估机制（Evals），用数据来指引 Agent 的优化方向。
+
+### 科学评估反思模式的收益
+
+在 Agentic AI 的开发中，反思模式（Reflection）通常能带来可见的质量提升。但作为严谨的工程师，我们必须面对一个现实：**反思机制并非没有代价。** 它意味着额外的 Token 消耗，以及系统响应时长（Latency）的增加。
+
+因此，在决定是否将反思步骤固化到生产环境的代码中之前，我们必须回答一个核心问题：**反思究竟为我们的系统带来了多少实质性的性能提升？** 
+
+这就要求我们建立一套科学的评估体系（Evals）。针对不同类型的任务，评估方法可以大致分为**客观评估（Objective Evals）**与**主观评估（Subjective Evals）**两大类。
+
+**1. 客观评估：用真实数据说话 (Text-to-SQL 实战)**
+
+对于有明确“标准答案（Ground Truth）”的任务，构建代码驱动的客观评估是最简单、也最可靠的方式。
+
+以**数据库查询生成（Text-to-SQL）**为例。假设你经营一家零售店，用户可能会问：“*2025年5月卖出了多少件商品？*” 或者 “*库存里最贵的商品是什么？*”
+Agent 的工作流是：将自然语言转化为 SQL 语句 -> 反思并优化 SQL -> 执行 SQL -> 返回最终答案。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413132427679.png)
+
+为了衡量反思的价值，我们可以构建一个自动化测试集：
+
+```python
+# 伪代码：客观任务的自动化评估流 (Objective Evals)
+
+# 1. 构建包含测试用例与“标准答案”的数据集
+evaluation_dataset = [
+    {"query": "Number of items sold in May 2025?", "ground_truth": "1201"},
+    {"query": "Most expensive item?", "ground_truth": "Airflow sneaker"},
+    {"query": "How many styles carried?", "ground_truth": "14"}
+]
+
+def run_evals(agent_workflow, dataset):
+    correct_count = 0
+    for item in dataset:
+        # 执行 Agent 工作流（可切换是否开启 Reflection）
+        agent_answer = agent_workflow.run(item["query"])
+        
+        # 客观比对：完全匹配则算正确
+        if str(agent_answer) == item["ground_truth"]:
+            correct_count += 1
+            
+    accuracy = correct_count / len(dataset)
+    return accuracy
+
+# 测试结果对比：
+# accuracy_without_reflection = 87%
+# accuracy_with_reflection = 95%
+```
+
+通过这套评估脚本，我们得到了直观的数据：**无反思时的准确率为 87%，加入反思后准确率跃升至 95%。** 这种肉眼可见的性能提升，为我们增加系统开销提供了强有力的决策依据。同时，未来每当你想修改 Prompt（比如要求生成的 SQL 运行得更快）时，只需一键重新运行这个 Eval 脚本，就能立刻知道修改是正向还是负向的。
+
+**2. 主观评估：突破 LLM 裁判的局限性**
+
+客观评估固然美好，但现实中很多任务是高度主观的。比如我们在上一节提到的**图表生成**：同样是展示咖啡销量，一个普通柱状图和一个分组柱状图，哪个更好？这里没有绝对正确的数字答案。
+
+对于这类主观任务，最直观的想法是使用 **LLM 作为裁判 (LLM-as-a-judge)**。比如，把两张图同时喂给多模态大模型，问它：“*哪张图片更好？*”
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413132923283.png)
+
+但工程实践证明，**这种简单的 A/B 对比评测效果极差**。
+主要原因在于 LLM 存在严重的 **位置偏见 (Position Bias)**。当给定两个选项时，许多 LLM 会无脑偏好第一个出现的选项（选项 A）。即使你交换两张图片的顺序，它可能依然选择第一张。此外，大模型在没有任何标准的情况下给出的比较结果，往往缺乏一致性，难以对齐人类专家的判断。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413134645063.png)
+
+**3. 破局之道：基于量表 (Rubric) 的细粒度打分**
+
+为了让 LLM 裁判输出稳定、可靠的评估结果，我们必须摒弃模糊的比较，转而采用**量表打分制 (Rubric-based grading)**。
+
+而且，**千万不要直接让 LLM 给出 1 到 5 的综合评分**（大模型在这类连续数值的校准上表现很差）。最佳实践是：**将复杂的审美/质量标准，拆解为一系列明确的、非黑即白的二元判断（0或1，True或False）。**
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413134852257.png)
+
+以下是图表生成任务的主观评估伪代码实现：
+
+```python
+# 伪代码：基于量表的主观评估 (Rubric-based Subjective Evals)
+
+def evaluate_chart_quality(image_path):
+    # 设计包含清晰、客观二元指标的 Rubric
+    rubric_prompt = """
+    Assess the attached image against this quality rubric. 
+    Each item should receive a score of 1 (true) or 0 (false). 
+    Return the scores as a JSON object:
+    
+    1. Has clear title (是否有清晰的标题)
+    2. Axis labels present (坐标轴标签是否存在)
+    3. Appropriate chart type (图表类型是否合适，如非堆叠)
+    4. Axes use appropriate numerical range (坐标轴数值范围是否合理)
+    5. Legend is clearly visible (图例是否清晰可见)
+    """
+    
+    # 强制模型输出 JSON 格式的各项得分
+    evaluation_json = llm_vision.judge(rubric_prompt, image=image_path)
+    
+    # 将各项 0/1 分数相加，得出一个稳定的综合评分（满分 5 分）
+    total_score = sum(evaluation_json.values())
+    return total_score
+```
+
+通过这种方式，我们对一批测试用例进行打分。可能会发现：
+*   **无反思 (No reflection)** 生成的图表平均得分为 4 分、5 分。
+*   **加入反思 (With reflection)** 后，图表平均得分稳定在 7 分、8 分（假设总分10分）。
+
+
+使用 Rubric 强迫 LLM 去检查“标题”、“图例”等细节，不仅有效消除了位置偏见，还能产生极其稳定、与人类直觉高度一致的评估结果。
+
+**4. 核心总结**
+
+构建严谨的评估体系，是高级 Agent 开发者与初学者的分水岭。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413140146662.png)
+
+*   **面对客观任务**：毫不犹豫地构建 Ground Truth 数据集，用代码写死判断逻辑。这最简单，也最硬核。
+*   **面对主观任务**：使用 LLM 作为裁判，但必须放弃抽象的“1-5分”或“A和B谁好”，转而建立基于具体维度的**二元 Checklist (Rubric)** 来累加得分。
+
+有了 Evals 作为指南针，你在调整 Agent 的 Prompt 或工具链时将不再是“盲人摸象”。接下来，我们将深入探讨反思模式的最后一块拼图：**当反思机制能够获取到外部增量信息时，系统究竟会发生怎样令人惊叹的化学反应？**
+
+### 使用外部反馈
+
+在开发基于 LLM 的应用时，几乎每一个开发者都会经历一个痛苦的阶段：**提示词工程的边际效用递减**。
+
+当你刚开始调整 Prompt 时（比如从零样本变为少样本），系统的性能（Performance）会有一个快速的拉升。但很快，这条曲线就会变得越来越平缓，直至完全停滞（Plateaus）。在这个阶段，无论你再怎么精心雕琢那些提示词，花上几个小时去替换一些形容词或调整语气，系统的整体表现都很难再有实质性的突破。
+
+此时，**如果你感觉自己在无休止的“炼丹（Prompt Engineering）”中浪费时间，且收效甚微，那么是时候进行架构升维了。**
+
+**1. 架构演进：从内部反思到外部闭环**
+
+在这个停滞点，如果我们引入**基础的反思模式（Reflection）**——让 LLM 审视自己的初稿，系统的性能曲线会向上跃升一个台阶。但如果这种反思仅仅依赖模型内部的知识库（即“左手倒右手”），它依然会很快触达一个新的天花板。
+
+**真正能让性能曲线呈现指数级突破、彻底改变游戏规则的，是引入“外部反馈（External Feedback）”。**
+
+什么是外部反馈？它意味着在“初稿生成”和“反思修改”之间，插入一个**真实的工具执行层**。模型不再是凭空猜测哪里写得不好，而是基于物理或数字世界的真实反馈来进行迭代。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413140458814.png)
+
+**2. 经典场景：外部反馈如何拯救 LLM 的短板？**
+
+让我们看看在不同的业务挑战中，简单的外部工具是如何为反思机制注入灵魂的。
+
+**(1) 代码沙盒 (Code Execution)**
+
+如前文所述，当模型写出包含语法错误的代码（v1）时。仅靠模型自己看代码，很难发现隐藏的 Bug。但如果你通过代码执行器运行它，捕获到真实的报错日志 `SyntaxError: unterminated string literal (detected at line 1)`，并将其喂给模型。这种硬核的外部环境反馈，能让模型立刻定位问题并输出完美的 v2 版本。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413140624283.png)
+
+**(2) 正则引擎匹配 (Pattern Matching)**
+
+假设你在开发一个营销文案 Agent，严格禁止提及竞争对手。
+*   **挑战**：LLM 偶尔会脑补出：“*我们的鞋子比 RivalCo 的好穿多了。*”
+*   **外部反馈工具**：不需要用 AI 去查，直接写一段简单的 Python 正则表达式代码。
+*   **反思闭环**：一旦代码检测到黑名单词汇，立即将触发词（“RivalCo”）作为确凿证据打回给 LLM，强迫其重写。
+
+```python
+# 伪代码：基于正则反馈的反思闭环
+def marketing_agent(prompt):
+    copy_v1 = llm.generate(prompt)
+    
+    # 外部工具：基于规则的硬性校验
+    forbidden_words = regex_tool.find_competitors(copy_v1)
+    
+    if forbidden_words:
+        # 将外部工具的确切反馈注入反思 Prompt
+        reflection_prompt = f"Your draft contains forbidden competitor names: {forbidden_words}. Rewrite without them."
+        return llm.generate(reflection_prompt)
+        
+    return copy_v1
+```
+
+**(3) 实时网络搜索 (Web Search)**
+
+*   **挑战**：Agent 在写历史文章时声称“*泰姬陵建于 1648 年*”。但这其实是不严谨的（它是 1631 年动工，1648 年完工）。
+*   **外部反馈工具**：调用 Web Search API 获取维基百科的权威摘要。
+*   **反思闭环**：将检索到的真实历史片段喂给反思模型，模型便能基于最新、最准的外部事实，纠正自己的知识盲区，生成毫无破绽的叙述。
+
+**(4) 精确字数统计 (Word Count Tool)**
+
+*   **挑战**：大家都知道，LLM 极度不擅长精确的字数控制（要求写 500 字，它经常写 600 字）。
+*   **外部反馈工具**：一个简单的 `len(text.split())` 函数。
+*   **反思闭环**：如果初稿字数超标，将真实的 `word_count` 数字反馈给 LLM：“*你的文章有 612 个字，超过了 500 字的限制，请大幅删减。*”有了具体的数字反馈，模型就能更精准地压缩篇幅。
+
+![](https://graphbed-1331926955.cos.ap-shanghai.myqcloud.com/GraphBed/20260413140901743.png)
+
+**3. 结语与预告**
+
+反思模式（Reflection），特别是结合了外部反馈的反思模式，是构建高可用 Agent 系统的第一块基石。它告诉我们一个核心的工程哲学：**不要强求大模型一次性完美，而是建立一个能让它不断试错、获取反馈并自我纠正的系统机制。**
+
+我们在这节课中看到了许多“外部工具”的影子（如执行代码、网络搜索、正则匹配）。这正是我们通往更高级 Agentic 架构的桥梁。
+
+在接下来的全新模块中，我们将正式深入探讨 Agentic AI 的第二大核心设计模式——**工具调用 (Tool Use)**。我们将学习如何系统性地赋予大模型调用外部函数的权利，让你的 Agent 彻底长出触角，连接广阔的真实世界！敬请期待！
+
